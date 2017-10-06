@@ -1,0 +1,10 @@
+function [w,MSE] = linear_regression(X,y)
+    [r,c] = size(X)
+    new = ones(r,1)
+    X = [X new]
+    pseudo = pinv(X)
+    w = pseudo*y
+    yp = X*w
+    error = yp - y
+    MSE = mean(error.^2)
+end
